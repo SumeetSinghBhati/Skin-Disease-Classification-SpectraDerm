@@ -42,13 +42,10 @@ Copy code
 pip install opencv-python numpy tensorflow matplotlib seaborn scikit-learn
 Usage
 Prepare the Data: Load and preprocess the images from the dataset. Images are resized to 224x224 pixels and preprocessed for the ResNet50 model.
-
 Model Training:
-
 The ResNet50 model is used with ImageNet weights and fine-tuned with additional layers.
 Training is conducted over 12 epochs with a batch size of 32.
 Model Evaluation:
-
 Evaluate the model on a validation set and plot training/validation loss and accuracy.
 Test the model on unseen data and generate a confusion matrix to visualize performance.
 Model Training
@@ -72,4 +69,3 @@ Insights
 High Accuracy: The model achieves near-perfect accuracy on the training set and high accuracy on the validation set, demonstrating strong performance.
 Confusion Matrix: The confusion matrix highlights the model's ability to correctly predict most classes, though some misclassifications are present.
 Deployment: The model is deployed and accessible online, allowing users to test the model's performance interactively.
-For any questions or feedback, feel free to reach out or contribute to the project.
