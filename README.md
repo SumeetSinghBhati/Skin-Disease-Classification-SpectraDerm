@@ -1,71 +1,65 @@
-Skin Disease Classification Using ResNet50
-This project involves building a deep learning model to classify skin diseases using the ResNet50 architecture. The dataset includes various skin conditions, and the model is trained to accurately predict these conditions based on input images.
+# Skin Disease Classification using ResNet50
 
-Table of Contents
-Project Overview
-Dataset
-Installation
-Usage
-Model Training
-Model Evaluation
-Deployment
-Insights
-Project Overview
-This project utilizes the ResNet50 model, a powerful convolutional neural network, to classify images of skin diseases into one of eight categories. The dataset is divided into training and testing sets, with a distribution ratio of 80% for training and 20% for testing.
+## Project Overview
 
-Dataset
-The dataset is organized into two main folders: train_set and test_set. The train_set folder contains images categorized into different types of skin diseases, including:
+This project involves developing a skin disease classification model using the ResNet50 architecture. The model is trained to classify images of skin diseases into eight categories. The dataset is organized into training and testing folders with an 80-20% split for training and validation. The goal is to build a robust model capable of accurately classifying different types of skin infections.
 
-Bacterial Infections:
+## Dataset Overview
 
-Cellulitis
-Impetigo
-Fungal Infections:
+The dataset contains images categorized into the following skin disease types:
 
-Athlete's Foot
-Nail Fungus
-Ringworm
-Parasitic Infections:
+- **Bacterial Infections**
+  - Cellulitis
+  - Impetigo
 
-Cutaneous Larva Migrans
-Viral Skin Infections:
+- **Fungal Infections**
+  - Athlete's Foot
+  - Nail Fungus
+  - Ringworm
 
-Chickenpox
-Shingles
-Each category is well-represented to ensure a balanced dataset for training the model.
+- **Parasitic Infections**
+  - Cutaneous Larva Migrans
 
-Installation
-To run this project, you need to install the following Python packages:
+- **Viral Skin Infections**
+  - Chickenpox
+  - Shingles
 
-bash
-Copy code
-pip install opencv-python numpy tensorflow matplotlib seaborn scikit-learn
-Usage
-Prepare the Data: Load and preprocess the images from the dataset. Images are resized to 224x224 pixels and preprocessed for the ResNet50 model.
+The dataset is structured into `train_set` and `test_set` directories, with images resized to 224x224 pixels.
+
+## Code Overview
+Data Preparation:
+
+Images are loaded from the dataset, resized to 224x224 pixels, and split into training and validation sets.
+Labels are encoded and converted to one-hot vectors.
+
+Model Creation:
+
+A ResNet50 model is used with pre-trained weights from ImageNet, excluding the top layer.
+Additional layers include a Global Average Pooling layer, a Dense layer with 512 units, and a Dense output layer with softmax activation for classification.
 Model Training:
-The ResNet50 model is used with ImageNet weights and fine-tuned with additional layers.
-Training is conducted over 12 epochs with a batch size of 32.
+
+The model is trained for 12 epochs with a batch size of 32.
+Training and validation losses and accuracies are plotted to visualize the performance.
+
 Model Evaluation:
-Evaluate the model on a validation set and plot training/validation loss and accuracy.
-Test the model on unseen data and generate a confusion matrix to visualize performance.
-Model Training
-The model is trained using the following parameters:
 
-Epochs: 12
-Batch Size: 32
-Optimizer: Adam
-Loss Function: Categorical Crossentropy
-The training results show high accuracy and low loss, indicating effective learning and minimal overfitting.
+The trained model is evaluated on the test set.
+A confusion matrix is generated to visualize the performance across different classes.
 
-Model Evaluation
-The model's performance is evaluated using accuracy and loss metrics on both training and validation sets. A confusion matrix is generated to analyze the classification performance on the test data.
+## Results
 
-Deployment
-The full-fledged application is deployed on Hugging Face Spaces. You can interact with the deployed model and test it on new images using the following link:
+Training Accuracy: The model achieved 100% accuracy on the training set.
+Validation Accuracy: The model achieved approximately 96.26% accuracy on the validation set.
+Confusion Matrix: The confusion matrix shows the model's performance on the test set, with most classes predicted correctly.
 
-SpectraDerm on Hugging Face
+## Insights
 
-Insights
-High Accuracy: The model achieves near-perfect accuracy on the training set and high accuracy on the validation set, demonstrating strong performance.
-Confusion Matrix: The confusion matrix highlights the model's ability to correctly predict most classes, though some misclassifications are present.
-Deployment: The model is deployed and accessible online, allowing users to test the model's performance interactively.
+The model demonstrates effective learning, with training loss dropping significantly over epochs and validation accuracy stabilizing at around 96.26%.
+The confusion matrix indicates that the model performs well across most classes, though there are some misclassifications.
+
+## Deployment
+The full-fledged model is deployed and accessible on Hugging Face Spaces. You can explore and interact with the deployed model at the following link:
+
+[SpectraDerm on Hugging Face](https://huggingface.co/spaces/sumeetsinghbhati07/SpectraDerm)
+
+
